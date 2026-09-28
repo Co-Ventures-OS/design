@@ -1,0 +1,75 @@
+<!doctype html>
+<!--
+  Co-Ventures deck starter. Conventions (see skills/coventures-design/SKILL.md):
+  cream ground, ink text, Ovo display headings at the --fs-display-* scale with
+  1.0 leading, Work Sans body at --fs-body-*, square cards with a 1px ink rule,
+  one pastel block per slide, at most one gradient per deck (the hero),
+  wordmark bottom-left, page number bottom-right. Never bold Ovo.
+
+  Slides are 1920x1080 and scale to the window. For a self-contained page
+  (claude.ai artifact, email) replace the deck.css <link> with its contents.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deck title</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ovo&family=Work+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="../tokens/deck.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: var(--sans); }
+    body { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); padding: var(--space-6) 0; }
+    .slide {
+      width: 1920px; height: 1080px; position: relative; overflow: hidden;
+      padding: var(--space-9); background: var(--bg);
+      transform-origin: top center; transform: scale(var(--scale, 0.5));
+      margin-bottom: calc(1080px * (var(--scale, 0.5) - 1));
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);
+    }
+    .slide.hero { grid-template-columns: 1fr; background: var(--cv-gradient-warm); }
+    h1 { font: 400 var(--fs-display-xl) / var(--lh-display) var(--serif); letter-spacing: var(--tracking-display); color: var(--cv-ink-pure); }
+    h2 { font: 400 var(--fs-display-l) / var(--lh-display) var(--serif); letter-spacing: var(--tracking-display); color: var(--cv-ink-pure); }
+    p  { font: 400 var(--fs-body-l) / 1.3 var(--sans); letter-spacing: var(--tracking-body); color: var(--ink-soft); max-width: 40ch; margin-top: var(--space-5); }
+    .card { border: 1px solid var(--line); border-radius: var(--radius-card); padding: var(--space-7); display: flex; flex-direction: column; justify-content: flex-end; }
+    .card.peach { background: var(--peach); } .card.lavender { background: var(--lavender); } .card.lime { background: var(--lime); }
+    .card b { font: 400 var(--fs-display-m) / var(--lh-display) var(--serif); }
+    .card span { font: 400 var(--fs-body-m) / var(--lh-body) var(--sans); margin-top: var(--space-3); }
+    .chip { display: inline-block; padding: var(--space-1) var(--space-3); border-radius: var(--radius-chip); background: var(--lavender); font: 500 var(--fs-body-s) / 1.4 var(--sans); letter-spacing: .05em; text-transform: uppercase; }
+    .wordmark { position: absolute; left: var(--space-9); bottom: var(--space-7); font: 400 var(--fs-body-s) / 1 var(--sans); letter-spacing: var(--tracking-wordmark); text-transform: uppercase; }
+    .page { position: absolute; right: var(--space-9); bottom: var(--space-7); font: 400 var(--fs-body-s) / 1 var(--sans); color: var(--ink-soft); }
+  </style>
+</head>
+<body>
+  <section class="slide hero">
+    <div style="align-self:end">
+      <span class="chip">Sunrise 2026</span>
+      <h1 style="margin-top:var(--space-5)">What happens to<br>4 million Australians?</h1>
+    </div>
+    <div class="wordmark">Co-Ventures</div><div class="page">01</div>
+  </section>
+
+  <section class="slide">
+    <div>
+      <h2>The super system was built for a workforce that no longer exists.</h2>
+      <p>Here is what changes first, who it hits, and where we think the money goes.</p>
+    </div>
+    <div class="card peach"><b>4.1m</b><span>Australians in gig or portfolio work, 2026</span></div>
+    <div class="wordmark">Co-Ventures</div><div class="page">02</div>
+  </section>
+
+  <section class="slide">
+    <div style="grid-column:1/-1;align-self:center">
+      <h2>Talk to us.</h2>
+      <p>hello@coventures.vc</p>
+    </div>
+    <div class="wordmark">Co-Ventures</div><div class="page">03</div>
+  </section>
+
+  <script>
+    // Fit 1920px slides to the window width.
+    const fit = () => document.documentElement.style.setProperty("--scale", Math.min(1, (window.innerWidth - 32) / 1920));
+    fit(); addEventListener("resize", fit);
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kit",
+  "title": "Full kit",
+  "description": "Theme, all components and the agent skill in one install.",
+  "registryDependencies": [
+    "@coventures/theme",
+    "@coventures/button",
+    "@coventures/badge",
+    "@coventures/page-header",
+    "@coventures/stat-card",
+    "@coventures/states",
+    "@coventures/status-badge",
+    "@coventures/skill"
+  ],
+  "files": [],
+  "type": "registry:item"
+}

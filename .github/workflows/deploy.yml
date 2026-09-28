@@ -1,0 +1,21 @@
+# Deploys the style guide + registry to Railway on every push to main.
+# Same thin-stub pattern as the dashboard: the recipe lives in
+# Co-Ventures-OS/.github (railway-deploy.yml). Needs a RAILWAY_TOKEN repo
+# secret scoped to the design project.
+name: Deploy design system
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-design
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    uses: Co-Ventures-OS/.github/.github/workflows/railway-deploy.yml@main
+    with:
+      service: design
+    secrets: inherit

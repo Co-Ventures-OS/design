@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "status-badge",
+  "title": "StatusBadge",
+  "description": "Status word to brand tone in one place (syndicate stages, ask status, edit actions, health).",
+  "registryDependencies": [
+    "@coventures/badge"
+  ],
+  "files": [
+    {
+      "path": "registry/coventures/components/status-badge.tsx",
+      "content": "import { Badge, type badgeVariants } from \"@/registry/coventures/ui/badge\";\nimport type { VariantProps } from \"class-variance-authority\";\n\ntype Tone = NonNullable<VariantProps<typeof badgeVariants>[\"variant\"]>;\n\n/**\n * One place that decides which brand tone a status word gets. The syndicate\n * stage map used to be copied into five modals with slightly different\n * colours each time.\n */\nconst TONES: Record<string, Tone> = {\n  // Syndicate stages\n  PREP: \"default\",\n  RUN: \"lavender\",\n  CLOSE: \"peach\",\n  COMPLETE: \"lime\",\n  // Ask / task status\n  OPEN: \"peach\",\n  \"IN PROGRESS\": \"lavender\",\n  DONE: \"lime\",\n  COMPLETED: \"lime\",\n  CLOSED: \"default\",\n  CANCELLED: \"destructive\",\n  // Edit history actions\n  ARCHIVE: \"destructive\",\n  ARCHIVED: \"destructive\",\n  RESTORE: \"lime\",\n  RESTORED: \"lime\",\n  MERGE: \"lavender\",\n  MERGED: \"lavender\",\n  EDIT: \"default\",\n  EDITED: \"default\",\n  // Health\n  OK: \"lime\",\n  HEALTHY: \"lime\",\n  WARN: \"peach\",\n  WARNING: \"peach\",\n  ERROR: \"destructive\",\n  FAILED: \"destructive\",\n  AGENT: \"lavender\",\n};\n\nexport function toneFor(status: string | null | undefined): Tone {\n  if (!status) return \"default\";\n  return TONES[status.trim().toUpperCase()] ?? \"default\";\n}\n\ninterface StatusBadgeProps extends Omit<React.ComponentProps<typeof Badge>, \"variant\"> {\n  status: string | null | undefined;\n  /** Override the label; defaults to the status text. */\n  label?: React.ReactNode;\n}\n\nexport function StatusBadge({ status, label, ...props }: StatusBadgeProps) {\n  if (!status && !label) return null;\n  return (\n    <Badge variant={toneFor(status)} {...props}>\n      {label ?? status}\n    </Badge>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/shared/StatusBadge.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat-card",
+  "title": "StatCard",
+  "description": "KPI tile: label, value, delta pill, hint, footer slot, optional link. Uses next/link.",
+  "registryDependencies": [
+    "@coventures/theme",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/coventures/components/stat-card.tsx",
+      "content": "import Link from \"next/link\";\nimport type { ReactNode } from \"react\";\nimport { Card } from \"@/registry/coventures/ui/card\";\nimport { cn } from \"@/lib/utils\";\n\ninterface StatCardProps {\n  label: ReactNode;\n  value: ReactNode;\n  /** Percentage change vs the previous period. null renders a dash. */\n  delta?: { pct: number | null; previous?: string } | null;\n  hint?: ReactNode;\n  /** Anything to render below the value (sparkline, progress bar). */\n  footer?: ReactNode;\n  href?: string;\n  className?: string;\n}\n\nfunction DeltaPill({ pct }: { pct: number | null }) {\n  if (pct === null || !Number.isFinite(pct)) {\n    return <span className=\"text-xs text-muted-foreground\">&mdash;</span>;\n  }\n  const positive = pct >= 0;\n  return (\n    <span\n      className={cn(\n        \"rounded-md px-1.5 py-0.5 text-xs font-medium tabular-nums\",\n        positive ? \"bg-brand-lime text-foreground\" : \"bg-destructive/10 text-destructive\"\n      )}\n    >\n      {positive ? \"↑\" : \"↓\"} {Math.abs(pct).toFixed(0)}%\n    </span>\n  );\n}\n\n/**\n * One KPI tile. Replaces the three separate stat-card implementations that\n * lived in analytics, the investor modal and the overview tab.\n */\nexport function StatCard({ label, value, delta, hint, footer, href, className }: StatCardProps) {\n  const inner = (\n    <Card\n      className={cn(\n        \"flex h-full flex-col gap-0 p-4 transition-shadow\",\n        href && \"hover:shadow-sm\",\n        className\n      )}\n    >\n      <div className=\"mb-2 flex items-start justify-between gap-2\">\n        <div className=\"text-[11px] font-medium uppercase tracking-wider text-muted-foreground\">{label}</div>\n        {delta !== undefined && delta !== null && <DeltaPill pct={delta.pct} />}\n      </div>\n      <div className=\"text-2xl leading-none font-semibold tabular-nums\">{value}</div>\n      {hint && <div className=\"mt-1 text-xs text-muted-foreground\">{hint}</div>}\n      {delta?.previous && <div className=\"mt-1 text-[11px] text-muted-foreground\">vs {delta.previous}</div>}\n      {footer && <div className=\"mt-auto pt-3\">{footer}</div>}\n    </Card>\n  );\n  return href ? (\n    <Link href={href} className=\"block h-full\">\n      {inner}\n    </Link>\n  ) : (\n    inner\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/shared/StatCard.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

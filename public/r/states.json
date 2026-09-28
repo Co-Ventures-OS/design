@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "states",
+  "title": "States",
+  "description": "LoadingState, SkeletonRows, EmptyState and ErrorState: the four states every data view needs.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coventures/theme",
+    "spinner",
+    "alert",
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/coventures/components/states.tsx",
+      "content": "import type { ReactNode } from \"react\";\nimport { AlertCircleIcon, InboxIcon, type LucideIcon } from \"lucide-react\";\nimport { Spinner } from \"@/registry/coventures/ui/spinner\";\nimport { Alert, AlertDescription, AlertTitle } from \"@/registry/coventures/ui/alert\";\nimport { Skeleton } from \"@/registry/coventures/ui/skeleton\";\nimport { cn } from \"@/lib/utils\";\n\n/** Centered spinner with an optional line of text. */\nexport function LoadingState({ label = \"Loading…\", className }: { label?: string; className?: string }) {\n  return (\n    <div\n      className={cn(\"flex flex-col items-center justify-center gap-3 py-16 text-sm text-muted-foreground\", className)}\n      role=\"status\"\n    >\n      <Spinner className=\"size-6\" />\n      {label}\n    </div>\n  );\n}\n\n/** A few grey bars in a card shape, for content that has a known layout. */\nexport function SkeletonRows({ rows = 4, className }: { rows?: number; className?: string }) {\n  return (\n    <div className={cn(\"space-y-2\", className)}>\n      {Array.from({ length: rows }).map((_, i) => (\n        <Skeleton key={i} className=\"h-4\" style={{ width: `${90 - (i % 3) * 18}%` }} />\n      ))}\n    </div>\n  );\n}\n\ninterface EmptyStateProps {\n  title: ReactNode;\n  description?: ReactNode;\n  icon?: LucideIcon;\n  action?: ReactNode;\n  className?: string;\n}\n\n/** \"Nothing here\" block. Ten pages used to draw their own. */\nexport function EmptyState({ title, description, icon: Icon = InboxIcon, action, className }: EmptyStateProps) {\n  return (\n    <div\n      className={cn(\n        \"flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed px-6 py-12 text-center\",\n        className\n      )}\n    >\n      <Icon className=\"size-6 text-muted-foreground\" strokeWidth={1.5} />\n      <div className=\"text-sm font-medium\">{title}</div>\n      {description && <div className=\"max-w-sm text-sm text-muted-foreground\">{description}</div>}\n      {action && <div className=\"mt-2\">{action}</div>}\n    </div>\n  );\n}\n\n/** Inline error block for a failed load. */\nexport function ErrorState({ title = \"Something went wrong\", message, action, className }: {\n  title?: string;\n  message?: ReactNode;\n  action?: ReactNode;\n  className?: string;\n}) {\n  return (\n    <Alert variant=\"destructive\" className={className}>\n      <AlertCircleIcon />\n      <AlertTitle>{title}</AlertTitle>\n      {message && <AlertDescription>{message}</AlertDescription>}\n      {action && <div className=\"mt-2\">{action}</div>}\n    </Alert>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/shared/States.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

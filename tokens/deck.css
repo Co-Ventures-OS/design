@@ -1,0 +1,85 @@
+/* GENERATED from tokens/tokens.json by scripts/build-tokens.mjs. Do not edit.
+   Co-Ventures design tokens v0.1.0 — decks and plain HTML (no Tailwind) */
+
+/* Load fonts with: <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ovo&family=Work+Sans:wght@400;500;600&display=swap"> */
+:root {
+  /* Palette */
+  --cv-cream: #f5f1ee;
+  --cv-white: #ffffff;
+  --cv-ink: #1e1e1e;
+  --cv-ink-pure: #000000;
+  --cv-grey: #808694;
+  --cv-peach: #f6d9c0;
+  --cv-lavender: #ecdcf2;
+  --cv-lime: #dfe8b3;
+  --cv-warm-1: #dae152;
+  --cv-warm-2: #f2bc61;
+  --cv-warm-3: #f59e8b;
+  --cv-cool-1: #dde8ff;
+  --cv-cool-2: #e7ddff;
+  --cv-cool-3: #f6b5ff;
+  --cv-green: #bbed6b;
+  --cv-gradient-warm: linear-gradient(135deg, #dae152 0%, #f2bc61 52%, #f59e8b 100%);
+  --cv-gradient-cool: linear-gradient(135deg, #dde8ff 0%, #e7ddff 52%, #f6b5ff 100%);
+  --cv-gradient-green: linear-gradient(135deg, #dae152 0%, #bbed6b 100%);
+
+  /* Short aliases used inside slides */
+  --bg: var(--cv-cream);
+  --ink: var(--cv-ink);
+  --ink-soft: rgba(30,30,30,0.7);
+  --ink-faint: rgba(30,30,30,0.5);
+  --ink-hair: rgba(30,30,30,0.28);
+  --line: var(--cv-ink);
+  --grey: var(--cv-grey);
+  --peach: var(--cv-peach);
+  --lavender: var(--cv-lavender);
+  --lime: var(--cv-lime);
+  --sand: var(--peach);
+  --lilac: var(--lavender);
+  --sage: var(--lime);
+
+  /* Type */
+  --serif: "Ovo", Georgia, "Times New Roman", serif;
+  --sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--serif);
+  --font-body: var(--sans);
+  --font-wordmark: var(--sans);
+  --fs-display-xxl: 120px;
+  --fs-display-xl: 96px;
+  --fs-display-l: 72px;
+  --fs-display-m: 64px;
+  --fs-display-s: 48px;
+  --fs-display-xs: 32px;
+  --fs-body-l: 20px;
+  --fs-body-m: 16px;
+  --fs-body-s: 14px;
+  --fs-body-xs: 12px;
+  --lh-display: 1.0;
+  --lh-display-loose: 1.1;
+  --lh-body: 1.1;
+  --tracking-display: -0.02em;
+  --tracking-display-tight: -0.03em;
+  --tracking-body: -0.02em;
+  --tracking-wordmark: 0.10em;
+
+  /* Space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 120px;
+  --space-11: 146px;
+  --space-12: 180px;
+
+  /* Radius (deck cards are square; chips and pills are rounded) */
+  --radius-card: 0px;
+  --radius-chip: 5px;
+  --radius-pill: 30px;
+  --radius-circle: 50%;
+}

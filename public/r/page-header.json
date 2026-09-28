@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-header",
+  "title": "PageHeader",
+  "description": "Title block every page starts with: eyebrow, h1 (Ovo via the base layer), description, right-aligned actions.",
+  "registryDependencies": [
+    "@coventures/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/coventures/components/page-header.tsx",
+      "content": "import type { ReactNode } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface PageHeaderProps {\n  title: ReactNode;\n  /** One line under the title, muted. */\n  description?: ReactNode;\n  /** Right-aligned controls; wrap under the title on narrow screens. */\n  actions?: ReactNode;\n  /** Small label above the title, e.g. the entity type. */\n  eyebrow?: ReactNode;\n  className?: string;\n}\n\n/**\n * The page title block every authenticated page starts with. The h1 picks\n * up Ovo from the base layer; nothing here sets a font.\n */\nexport function PageHeader({ title, description, actions, eyebrow, className }: PageHeaderProps) {\n  return (\n    <div className={cn(\"flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between\", className)}>\n      <div className=\"min-w-0\">\n        {eyebrow && (\n          <div className=\"mb-1 text-[11px] font-medium uppercase tracking-wider text-muted-foreground\">\n            {eyebrow}\n          </div>\n        )}\n        <h1 className=\"text-3xl\">{title}</h1>\n        {description && <p className=\"mt-1 text-sm text-muted-foreground\">{description}</p>}\n      </div>\n      {actions && <div className=\"flex shrink-0 flex-wrap items-center gap-2\">{actions}</div>}\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/shared/PageHeader.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../node_modules/shadcn/dist/tailwind.css";
+@custom-variant dark (&:is(.dark *));
+
+/* The tokens are the registry's own output, imported from source so this
+   site can never drift from what consumers install. */
+@import "../tokens/tokens.css";

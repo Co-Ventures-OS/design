@@ -1,0 +1,264 @@
+/* GENERATED from tokens/tokens.json by scripts/build-tokens.mjs. Do not edit.
+   Co-Ventures design tokens v0.1.0 — web (Tailwind 4 + shadcn) */
+
+/* Three layers, top to bottom. Change the top layer to rebrand; the layers
+   below derive from it and components only ever read the bottom one.
+     1. Brand tokens    (--brand-*)              raw palette + fonts
+     2. Semantic tokens (--background, --primary) shadcn's vocabulary mapped onto the brand
+     3. Tailwind theme  (@theme inline)          exposes 1+2 as utilities
+   Fonts: load Ovo and Work Sans (next/font or the Google Fonts link in
+   tokens.json) and expose them as --font-ovo / --font-work-sans. The family
+   names below are the fallback when those variables are absent. */
+
+:root {
+  /* ---- 1. Brand ----------------------------------------------------------- */
+  --brand-canvas: #f5f1ee;
+  --brand-surface: #ffffff;
+  --brand-ink: #1e1e1e;
+  --brand-heading: #000000;
+  --brand-grey: #808694;
+  --brand-peach: #f6d9c0;
+  --brand-lavender: #ecdcf2;
+  --brand-lime: #dfe8b3;
+  --brand-ink-soft: rgba(30,30,30,0.7);
+  --brand-ink-faint: rgba(30,30,30,0.5);
+  --brand-ink-hair: rgba(30,30,30,0.28);
+  --brand-warm-1: #dae152;
+  --brand-warm-2: #f2bc61;
+  --brand-warm-3: #f59e8b;
+  --brand-cool-1: #dde8ff;
+  --brand-cool-2: #e7ddff;
+  --brand-cool-3: #f6b5ff;
+  --brand-green: #bbed6b;
+  --brand-gradient-warm: linear-gradient(135deg, #dae152 0%, #f2bc61 52%, #f59e8b 100%);
+  --brand-gradient-cool: linear-gradient(135deg, #dde8ff 0%, #e7ddff 52%, #f6b5ff 100%);
+  --brand-gradient-green: linear-gradient(135deg, #dae152 0%, #bbed6b 100%);
+
+  --brand-neutral-50: #faf8f7;
+  --brand-neutral-100: #f5f1ee;
+  --brand-neutral-200: #e7e2de;
+  --brand-neutral-300: #d6cfca;
+  --brand-neutral-400: #a69e99;
+  --brand-neutral-500: #78716c;
+  --brand-neutral-600: #57514d;
+  --brand-neutral-700: #443f3c;
+  --brand-neutral-800: #2a2725;
+  --brand-neutral-900: #1e1e1e;
+  --brand-neutral-950: #0f0e0d;
+
+  --brand-accent-50: #f7f2fa;
+  --brand-accent-100: #ecdcf2;
+  --brand-accent-200: #dcc6e6;
+  --brand-accent-300: #c4a6d3;
+  --brand-accent-400: #a883bd;
+  --brand-accent-500: #8f66a6;
+  --brand-accent-600: #78508d;
+  --brand-accent-700: #613f73;
+  --brand-accent-800: #4b3159;
+  --brand-accent-900: #372441;
+  --brand-accent-950: #221528;
+
+  --brand-radius: 10px;
+  --brand-radius-chip: 5px;
+  --brand-radius-pill: 30px;
+
+  /* ---- 2. Semantic (shadcn vocabulary) ------------------------------------ */
+  --background: var(--brand-canvas);
+  --foreground: var(--brand-ink);
+  --heading: var(--brand-heading);
+
+  --card: var(--brand-surface);
+  --card-foreground: var(--brand-ink);
+  --popover: var(--brand-surface);
+  --popover-foreground: var(--brand-ink);
+
+  --primary: var(--brand-ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--brand-neutral-200);
+  --secondary-foreground: var(--brand-ink);
+  --muted: var(--brand-neutral-200);
+  --muted-foreground: var(--brand-neutral-500);
+  --accent: var(--brand-neutral-200);
+  --accent-foreground: var(--brand-ink);
+  --destructive: #b3261e;
+
+  --border: var(--brand-neutral-200);
+  --input: var(--brand-neutral-300);
+  --ring: var(--brand-ink);
+
+  --radius: var(--brand-radius);
+
+  --chart-1: #d99a6b;
+  --chart-2: #a98bc4;
+  --chart-3: #a9b85e;
+  --chart-4: #1e1e1e;
+  --chart-5: #a69e99;
+
+  --sidebar: var(--brand-canvas);
+  --sidebar-foreground: var(--brand-ink);
+  --sidebar-primary: var(--brand-ink);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--brand-neutral-200);
+  --sidebar-accent-foreground: var(--brand-ink);
+  --sidebar-border: var(--brand-neutral-200);
+  --sidebar-ring: var(--brand-ink);
+}
+
+/* Dark mode is not designed yet. The variables exist so shadcn components
+   compile; flipping `.dark` on <html> will look rough until a dark ramp is
+   drawn. */
+.dark {
+  --background: #171514;
+  --foreground: var(--brand-canvas);
+  --heading: #ffffff;
+  --card: #211e1c;
+  --card-foreground: var(--brand-canvas);
+  --popover: #211e1c;
+  --popover-foreground: var(--brand-canvas);
+  --primary: var(--brand-canvas);
+  --primary-foreground: var(--brand-ink);
+  --secondary: #2e2a28;
+  --secondary-foreground: var(--brand-canvas);
+  --muted: #2e2a28;
+  --muted-foreground: var(--brand-neutral-400);
+  --accent: #2e2a28;
+  --accent-foreground: var(--brand-canvas);
+  --destructive: #e0574f;
+  --border: rgb(255 255 255 / 10%);
+  --input: rgb(255 255 255 / 15%);
+  --ring: var(--brand-neutral-400);
+  --sidebar: #171514;
+  --sidebar-foreground: var(--brand-canvas);
+  --sidebar-primary: var(--brand-canvas);
+  --sidebar-primary-foreground: var(--brand-ink);
+  --sidebar-accent: #2e2a28;
+  --sidebar-accent-foreground: var(--brand-canvas);
+  --sidebar-border: rgb(255 255 255 / 10%);
+  --sidebar-ring: var(--brand-neutral-400);
+}
+
+/* ---- 3. Tailwind theme ---------------------------------------------------- */
+@theme inline {
+  /* Typography -> font-sans, font-heading */
+  --font-sans: var(--font-work-sans, "Work Sans"), "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-ovo, "Ovo"), "Ovo", Georgia, "Times New Roman", serif;
+
+  /* Semantic colours -> bg-background, text-muted-foreground, border-border ... */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-heading: var(--heading);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand tones -> bg-brand-peach, text-brand-lavender, border-brand-lime ... */
+  --color-brand-peach: var(--brand-peach);
+  --color-brand-lavender: var(--brand-lavender);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-grey: var(--brand-grey);
+  --color-brand-green: var(--brand-green);
+  --color-brand-warm-1: var(--brand-warm-1);
+  --color-brand-warm-2: var(--brand-warm-2);
+  --color-brand-warm-3: var(--brand-warm-3);
+  --color-brand-cool-1: var(--brand-cool-1);
+  --color-brand-cool-2: var(--brand-cool-2);
+  --color-brand-cool-3: var(--brand-cool-3);
+
+  /* Brand ramps -> bg-neutral-200, text-accent-600 (shadow Tailwind's own scales) */
+  --color-neutral-50: var(--brand-neutral-50);
+  --color-neutral-100: var(--brand-neutral-100);
+  --color-neutral-200: var(--brand-neutral-200);
+  --color-neutral-300: var(--brand-neutral-300);
+  --color-neutral-400: var(--brand-neutral-400);
+  --color-neutral-500: var(--brand-neutral-500);
+  --color-neutral-600: var(--brand-neutral-600);
+  --color-neutral-700: var(--brand-neutral-700);
+  --color-neutral-800: var(--brand-neutral-800);
+  --color-neutral-900: var(--brand-neutral-900);
+  --color-neutral-950: var(--brand-neutral-950);
+  --color-accent-50: var(--brand-accent-50);
+  --color-accent-100: var(--brand-accent-100);
+  --color-accent-200: var(--brand-accent-200);
+  --color-accent-300: var(--brand-accent-300);
+  --color-accent-400: var(--brand-accent-400);
+  --color-accent-500: var(--brand-accent-500);
+  --color-accent-600: var(--brand-accent-600);
+  --color-accent-700: var(--brand-accent-700);
+  --color-accent-800: var(--brand-accent-800);
+  --color-accent-900: var(--brand-accent-900);
+  --color-accent-950: var(--brand-accent-950);
+
+  /* Radius scale, all derived from --radius */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-chip: var(--brand-radius-chip);
+  --radius-pill: var(--brand-radius-pill);
+}
+
+/* ---- Base ----------------------------------------------------------------- */
+@layer base {
+  /* Tailwind v4 defaults borders to currentcolor; keep a soft neutral border
+     for elements that don't name one. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentcolor);
+  }
+
+  * {
+    @apply outline-ring/50;
+  }
+
+  html {
+    @apply font-sans antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Page titles: Ovo, black, regular weight (Ovo ships only a 400 cut, so
+     font-semibold/bold on an h1 would render faux-bold). */
+  h1 {
+    @apply font-heading font-normal text-heading tracking-[-0.01em];
+    line-height: 1.15;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
