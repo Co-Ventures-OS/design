@@ -26,6 +26,10 @@ Changing a token: edit `tokens.json` → `npm run build` → check the diff in
 `tokens/*.css` and `public/r/theme.json` → commit. Consumers pick it up by
 re-running `npx shadcn add @coventures/theme`; decks re-copy `deck.css`.
 
+Tones carry meaning across every surface (peach = attention, lavender =
+context, lime = good news); a new component that uses them keeps that
+mapping. `Badge` and `Callout` are the two references.
+
 Adding a component: put the source under `registry/coventures/ui` (shadcn
 primitive with brand styling) or `registry/coventures/components` (composed
 piece), import siblings via `@/registry/coventures/...` (the CLI rewrites

@@ -1,11 +1,12 @@
 import tokens from "@/tokens/tokens.json";
 import { Button } from "@/registry/coventures/ui/button";
 import { Badge } from "@/registry/coventures/ui/badge";
+import { Callout, CalloutDescription, CalloutTitle } from "@/registry/coventures/ui/callout";
 import { PageHeader } from "@/registry/coventures/components/page-header";
 import { StatCard } from "@/registry/coventures/components/stat-card";
 import { StatusBadge } from "@/registry/coventures/components/status-badge";
 import { EmptyState, ErrorState, LoadingState, SkeletonRows } from "@/registry/coventures/components/states";
-import { ArrowRightIcon, PlusIcon } from "lucide-react";
+import { ArrowRightIcon, CalendarClockIcon, CheckCircle2Icon, InfoIcon, PlusIcon } from "lucide-react";
 
 const REGISTRY = "https://raw.githubusercontent.com/Co-Ventures-OS/design/main/public/r/{name}.json";
 
@@ -60,7 +61,7 @@ function Ramp({ name }: { name: "neutral" | "accent" }) {
 
 export default function Page() {
   const nav = [
-    ["colour", "Colour"], ["type", "Type"], ["space", "Space & radius"], ["buttons", "Buttons"], ["badges", "Badges"],
+    ["colour", "Colour"], ["type", "Type"], ["space", "Space & radius"], ["buttons", "Buttons"], ["badges", "Badges"], ["callouts", "Callouts"],
     ["header", "Page header"], ["stats", "Stat cards"], ["states", "States"], ["install", "Install"],
   ];
   return (
@@ -190,6 +191,30 @@ export default function Page() {
         <Code>{`import { StatusBadge, toneFor } from "@/components/shared/StatusBadge";\n<StatusBadge status="COMPLETE" />   // lime`}</Code>
       </Section>
 
+      <Section id="callouts" title="Callouts" lede="The same three pastels as a block. A tone means the same thing everywhere: peach is attention, lavender is context, lime is good news. Ink text, optional icon and title. Errors are not callouts.">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Callout variant="peach">
+            <CalendarClockIcon />
+            <CalloutTitle>Allocations close Friday</CalloutTitle>
+            <CalloutDescription>Anyone not committed by 5pm AEST drops to the waitlist. Chase the six still pending.</CalloutDescription>
+          </Callout>
+          <Callout variant="lavender">
+            <InfoIcon />
+            <CalloutTitle>Why this is here</CalloutTitle>
+            <CalloutDescription>The Brain matched this meeting to Sunrise from the attendee list. Change the company if it got it wrong.</CalloutDescription>
+          </Callout>
+          <Callout variant="lime">
+            <CheckCircle2Icon />
+            <CalloutTitle>Investor update sent</CalloutTitle>
+            <CalloutDescription>Went to 38 investors at 9:02am. Three replies so far.</CalloutDescription>
+          </Callout>
+          <Callout>
+            <CalloutDescription>A neutral aside with no icon or title, for a line of context that does not need a tone.</CalloutDescription>
+          </Callout>
+        </div>
+        <Code>{`import { Callout, CalloutTitle, CalloutDescription } from "@/components/ui/callout";\n<Callout variant="peach">\n  <CalendarClockIcon />\n  <CalloutTitle>Allocations close Friday</CalloutTitle>\n  <CalloutDescription>Chase the six still pending.</CalloutDescription>\n</Callout>`}</Code>
+      </Section>
+
       <Section id="header" title="Page header" lede="The block every page starts with. The h1 gets Ovo from the base layer; nothing here sets a font.">
         <div className="rounded-lg border border-border bg-card p-6">
           <PageHeader
@@ -221,7 +246,7 @@ export default function Page() {
       <Section id="install" title="Install" lede="Web apps install by URL through the shadcn CLI. Decks copy templates/deck.html. Agents get the skill with the kit.">
         <Code>{`// components.json\n"registries": {\n  "@coventures": "${REGISTRY}"\n}\n\n// then\nnpx shadcn@latest add @coventures/kit\n\n// app/globals.css, after @import "tailwindcss";\n@import "./coventures.css";`}</Code>
         <p className="mt-4 text-sm text-muted-foreground">
-          Items: theme · button · badge · page-header · stat-card · states · status-badge · skill · kit.
+          Items: theme · button · badge · callout · page-header · stat-card · states · status-badge · skill · kit.
           Everything else (Dialog, Table, Tabs, Select…) is stock shadcn and picks up the theme automatically. Decks: <a className="underline" href="https://github.com/Co-Ventures-OS/design/blob/main/templates/deck.html">templates/deck.html</a>.
         </p>
       </Section>

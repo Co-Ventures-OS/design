@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "callout",
+  "title": "Callout",
+  "description": "Short aside on a pastel block: peach = attention, lavender = context, lime = good news, default = neutral. Optional icon and title. Not for errors.",
+  "dependencies": [
+    "cn",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "@coventures/theme"
+  ],
+  "files": [
+    {
+      "path": "registry/coventures/ui/callout.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"cn\"\n\n// Brand callouts: a short aside on a pastel block, ink text, optional icon\n// and title. Same three tones as Badge so a tone means the same thing\n// everywhere:\n//   peach     – attention: a caveat, a deadline, something to check\n//   lavender  – context: background, what an agent did, why this is here\n//   lime      – good news: done, confirmed, a tip that saves time\n//   default   – neutral aside on a muted fill\n// Not for errors; ErrorState / Alert destructive own those.\nconst calloutVariants = cva(\n  \"group/callout relative grid w-full gap-0.5 rounded-lg px-4 py-3 text-left text-sm text-foreground has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2.5 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-muted\",\n        peach: \"bg-brand-peach\",\n        lavender: \"bg-brand-lavender\",\n        lime: \"bg-brand-lime\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n)\n\nfunction Callout({\n  className,\n  variant = \"default\",\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof calloutVariants>) {\n  return (\n    <div\n      data-slot=\"callout\"\n      data-variant={variant}\n      role=\"note\"\n      className={cn(calloutVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nfunction CalloutTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"callout-title\"\n      className={cn(\"font-medium leading-snug\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CalloutDescription({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"callout-description\"\n      className={cn(\"leading-relaxed text-foreground/80 [&_a]:underline [&_a]:underline-offset-2 [&_p:not(:last-child)]:mb-1\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Callout, CalloutTitle, CalloutDescription, calloutVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

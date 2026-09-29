@@ -15,7 +15,8 @@ Three pastel brand tones for badges, chips and blocks: peach `#f6d9c0`,
 lavender `#ecdcf2`, lime `#dfe8b3`. Headings are **Ovo** (serif, one 400
 weight, never bold). Body is **Work Sans**. Buttons are pills: solid ink, or a
 thin ink outline that tints on hover and never inverts. Badges are small-radius
-uppercase tracked labels on a pastel. Web cards have a 10px radius; deck cards
+uppercase tracked labels on a pastel. Callouts are the same pastels as a
+block: a short aside with ink text, optional icon and title. Web cards have a 10px radius; deck cards
 are square. Gradients (warm lime→amber→coral, cool blue→lilac→pink) are for
 hero art and decks, not UI chrome.
 
@@ -42,7 +43,7 @@ Rules:
   `text-muted-foreground`, `border-border`, `bg-primary`. Brand tones:
   `bg-brand-peach`, `bg-brand-lavender`, `bg-brand-lime`. Never raw `gray-*`,
   `zinc-*`, `violet-*` or hex values in components.
-- Use `Button`, `Badge`, `PageHeader`, `StatCard`, `StatusBadge`,
+- Use `Button`, `Badge`, `Callout`, `PageHeader`, `StatCard`, `StatusBadge`,
   `LoadingState` / `SkeletonRows` / `EmptyState` / `ErrorState` from the
   registry. Other primitives (Dialog, Table, Tabs, Select…) come from stock
   shadcn: `npx shadcn@latest add dialog`.
@@ -50,6 +51,13 @@ Rules:
   to it. Do not set `font-heading` on anything below h2.
 - Status words map to tones through `toneFor()`; do not invent a colour for
   a status.
+- The three tones mean the same thing on a badge, a callout or a deck block:
+  **peach = attention** (a caveat, a deadline, something to check),
+  **lavender = context** (background, what an agent did, why this is here),
+  **lime = good news** (done, confirmed, a time-saving tip). Never use a
+  pastel for an error; that is `ErrorState` or the destructive `Alert`. At
+  most one callout per section, and never a pastel `Alert` with a hand-set
+  background: use `Callout`.
 - To change a colour app-wide, change `tokens.json` in the design repo and
   re-install `@coventures/theme`. Do not patch `coventures.css` locally.
 
@@ -66,7 +74,9 @@ inline when the page must be self-contained. Fonts:
 Deck conventions: cream background, ink text, display headings in Ovo at
 the `--fs-display-*` scale with `--lh-display` (1.0) and
 `--tracking-display` (-0.02em); body in Work Sans at `--fs-body-*`; square
-cards with a 1px ink rule; one pastel block per slide; one gradient per deck
+cards with a 1px ink rule; one pastel block per slide, either a stat card or
+a callout (`.callout` in the template: pastel fill, no rule, body-m text,
+same tone meanings as the web); one gradient per deck
 at most, for the hero. Wordmark bottom-left (Work Sans, uppercase, `0.10em`
 tracking), page number bottom-right. Never bold Ovo.
 ## Tokens (quick reference)

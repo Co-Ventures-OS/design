@@ -35,7 +35,7 @@ app/                      the style-guide site (Next.js)
 
    ```bash
    npx shadcn@latest add @coventures/kit
-   npx shadcn@latest add @coventures/theme @coventures/button
+   npx shadcn@latest add @coventures/theme @coventures/button @coventures/callout
    ```
 
    `theme` drops `app/coventures.css`. Import it in `globals.css` right after

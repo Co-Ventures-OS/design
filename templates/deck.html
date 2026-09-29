@@ -3,7 +3,8 @@
   Co-Ventures deck starter. Conventions (see skills/coventures-design/SKILL.md):
   cream ground, ink text, Ovo display headings at the --fs-display-* scale with
   1.0 leading, Work Sans body at --fs-body-*, square cards with a 1px ink rule,
-  one pastel block per slide, at most one gradient per deck (the hero),
+  one pastel block per slide (a stat card or a .callout: peach = attention,
+  lavender = context, lime = good news), at most one gradient per deck (the hero),
   wordmark bottom-left, page number bottom-right. Never bold Ovo.
 
   Slides are 1920x1080 and scale to the window. For a self-contained page
@@ -35,6 +36,9 @@
     .card.peach { background: var(--peach); } .card.lavender { background: var(--lavender); } .card.lime { background: var(--lime); }
     .card b { font: 400 var(--fs-display-m) / var(--lh-display) var(--serif); }
     .card span { font: 400 var(--fs-body-m) / var(--lh-body) var(--sans); margin-top: var(--space-3); }
+    .callout { padding: var(--space-6); font: 400 var(--fs-body-m) / 1.3 var(--sans); letter-spacing: var(--tracking-body); align-self: start; max-width: 36ch; }
+    .callout b { display: block; font: 500 var(--fs-body-m) / 1.3 var(--sans); margin-bottom: var(--space-2); }
+    .callout.peach { background: var(--peach); } .callout.lavender { background: var(--lavender); } .callout.lime { background: var(--lime); }
     .chip { display: inline-block; padding: var(--space-1) var(--space-3); border-radius: var(--radius-chip); background: var(--lavender); font: 500 var(--fs-body-s) / 1.4 var(--sans); letter-spacing: .05em; text-transform: uppercase; }
     .wordmark { position: absolute; left: var(--space-9); bottom: var(--space-7); font: 400 var(--fs-body-s) / 1 var(--sans); letter-spacing: var(--tracking-wordmark); text-transform: uppercase; }
     .page { position: absolute; right: var(--space-9); bottom: var(--space-7); font: 400 var(--fs-body-s) / 1 var(--sans); color: var(--ink-soft); }
@@ -59,11 +63,20 @@
   </section>
 
   <section class="slide">
+    <div>
+      <h2>Three things change in year one.</h2>
+      <p>Contribution rules, the default fund test, and who counts as an employee.</p>
+    </div>
+    <div class="callout peach"><b>Watch the July date</b>The default-fund test lands before the contribution change, so the order matters for anyone advising employers.</div>
+    <div class="wordmark">Co-Ventures</div><div class="page">03</div>
+  </section>
+
+  <section class="slide">
     <div style="grid-column:1/-1;align-self:center">
       <h2>Talk to us.</h2>
       <p>hello@coventures.vc</p>
     </div>
-    <div class="wordmark">Co-Ventures</div><div class="page">03</div>
+    <div class="wordmark">Co-Ventures</div><div class="page">04</div>
   </section>
 
   <script>
