@@ -1,0 +1,29 @@
+# Added by the org provisioner. Claude security-reviews code both ways it
+# can arrive:
+#   - pull requests -> inline comments on the PR (advisory, never blocks)
+#   - direct pushes to main -> findings filed as a GitHub issue
+# Recipes live in Co-Ventures-OS/.github; this stub is managed by the
+# provisioner and may be updated by it — don't hand-edit.
+name: Security review
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  review-pr:
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: Co-Ventures-OS/.github/.github/workflows/security-review.yml@main
+    secrets: inherit
+
+  review-push:
+    if: github.event_name == 'push'
+    permissions:
+      contents: read
+      issues: write
+    uses: Co-Ventures-OS/.github/.github/workflows/security-review-push.yml@main
+    secrets: inherit
