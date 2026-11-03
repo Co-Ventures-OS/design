@@ -1,6 +1,6 @@
-# Co-Ventures design system repo
+# Co Ventures design system repo
 
-This repo is the single source of truth for how Co-Ventures things look:
+This repo is the single source of truth for how Co Ventures things look:
 web apps (dashboard, orbit, vp-form, anything new), decks, emails and
 one-off HTML. Nothing lives outside this repo: no design-tool or
 claude.ai artifact copy of the tokens.

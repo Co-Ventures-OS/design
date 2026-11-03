@@ -1,6 +1,6 @@
-# Co-Ventures design system
+# Co Ventures design system
 
-One source of truth for the Co-Ventures look, consumed by URL from every
+One source of truth for the Co Ventures look, consumed by URL from every
 project: web apps get a [shadcn registry](https://ui.shadcn.com/docs/registry),
 decks and one-off HTML get `deck.css` and a starter template, and agents
 get a skill. Everything lives in this repo; there is no external design tool. Style guide: **https://design.coventures.vc** (until the domain
@@ -50,7 +50,7 @@ app/                      the style-guide site (Next.js)
    <html className={`${ovo.variable} ${workSans.variable}`}>
    ```
 
-4. Add one line to the project's `CLAUDE.md`: *"UI: use the Co-Ventures
+4. Add one line to the project's `CLAUDE.md`: *"UI: use the Co Ventures
    design system (skill in `.claude/skills/coventures-design`, registry
    `@coventures`). Never hand-roll a button or invent a colour."*
 

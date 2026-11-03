@@ -11,7 +11,7 @@ const t = JSON.parse(readFileSync(join(root, "tokens/tokens.json"), "utf8"));
 const c = (k) => t.color[k].value;
 const ramp = (name) => Object.entries(t.color[name].value).map(([k, v]) => `  --brand-${name}-${k}: ${v};`).join("\n");
 const header = (what) => `/* GENERATED from tokens/tokens.json by scripts/build-tokens.mjs. Do not edit.
-   Co-Ventures design tokens v${t.version} — ${what} */\n`;
+   Co Ventures design tokens v${t.version} — ${what} */\n`;
 
 // ---------------------------------------------------------------- tokens.css
 const web = `${header("web (Tailwind 4 + shadcn)")}

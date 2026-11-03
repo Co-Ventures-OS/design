@@ -6,7 +6,7 @@
     {
       "name": "theme",
       "type": "registry:item",
-      "title": "Co-Ventures theme",
+      "title": "Co Ventures theme",
       "description": "Brand, semantic and Tailwind-theme tokens plus base styles. Drops app/coventures.css into the project; @import it from globals.css after tailwindcss.",
       "files": [
         {

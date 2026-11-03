@@ -68,7 +68,7 @@ export default function Page() {
     <main className="mx-auto max-w-5xl px-4 pb-24 sm:px-8">
       <header className="sticky top-0 z-10 -mx-4 mb-8 border-b border-border bg-background/90 px-4 py-3 backdrop-blur sm:-mx-8 sm:px-8">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs">
-          <span className="font-sans uppercase tracking-[0.10em]">Co-Ventures</span>
+          <span className="font-sans uppercase tracking-[0.10em]">Co Ventures</span>
           {nav.map(([id, label]) => (
             <a key={id} href={`#${id}`} className="text-muted-foreground hover:text-foreground">{label}</a>
           ))}
@@ -78,7 +78,7 @@ export default function Page() {
 
       <PageHeader
         eyebrow={`Design system · v${tokens.version}`}
-        title="Everything Co-Ventures builds, one look"
+        title="Everything Co Ventures builds, one look"
         description="Tokens, components and rules. Web apps install from the shadcn registry; decks start from the deck template; agents read the skill."
         actions={
           <>
@@ -130,7 +130,7 @@ export default function Page() {
           ))}
           <div className="flex items-baseline gap-4">
             <span className="w-24 shrink-0 text-[11px] text-muted-foreground">wordmark</span>
-            <span className="uppercase tracking-[0.10em]">Co-Ventures</span>
+            <span className="uppercase tracking-[0.10em]">Co Ventures</span>
           </div>
         </div>
       </Section>

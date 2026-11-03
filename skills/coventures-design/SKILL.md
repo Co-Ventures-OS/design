@@ -1,9 +1,9 @@
 ---
 name: coventures-design
-description: Co-Ventures brand and UI system. Load before styling anything in a Co-Ventures project (web app, deck, mockup, email, landing page) — colours, fonts, type scale, spacing, components, and how to install them.
+description: Co Ventures brand and UI system. Load before styling anything in a Co Ventures project (web app, deck, mockup, email, landing page) — colours, fonts, type scale, spacing, components, and how to install them.
 ---
 
-# Co-Ventures design system
+# Co Ventures design system
 
 Source of truth: https://github.com/Co-Ventures-OS/design (tokens in
 `tokens/tokens.json`; style guide at https://design.coventures.vc).

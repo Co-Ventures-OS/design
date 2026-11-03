@@ -6,8 +6,8 @@ const ovo = Ovo({ weight: "400", subsets: ["latin"], variable: "--font-ovo" });
 const workSans = Work_Sans({ subsets: ["latin"], variable: "--font-work-sans" });
 
 export const metadata: Metadata = {
-  title: "Co-Ventures design system",
-  description: "Tokens, components and rules for everything Co-Ventures builds.",
+  title: "Co Ventures design system",
+  description: "Tokens, components and rules for everything Co Ventures builds.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
