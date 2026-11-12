@@ -1,0 +1,19 @@
+# Added by the org provisioner. When a check on this repo fails, Ryan gets
+# one Slack message per commit instead of an email per failed run. The list
+# of workflows below is written by the provisioner from this repo's own
+# workflows. Recipe lives in Co-Ventures-OS/.github; this stub is managed by
+# the provisioner and may be updated by it — don't hand-edit.
+name: Notify
+
+on:
+  workflow_run:
+    workflows: ["Check", "Deploy design system", "Security review"]
+    types: [completed]
+
+jobs:
+  slack:
+    if: github.event.workflow_run.conclusion == 'failure'
+    permissions:
+      actions: read
+    uses: Co-Ventures-OS/.github/.github/workflows/notify-slack.yml@main
+    secrets: inherit
